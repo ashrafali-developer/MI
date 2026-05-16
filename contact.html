@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Mohamed Ibrahim — Mobile photographer & videographer. Book a shoot, request a quote. Shot on Realme P1 5G.">
+  <title>Contact — Mohamed Ibrahim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white:#FFFFFF; --near-black:#242424; --steel-blue:#5C7C89; --deep-teal:#1F4959; --midnight:#011425;
+      --text-primary:#242424; --text-muted:#6b7b8a;
+      --border-light:#e2e8f0; --shadow-md:0 4px 20px rgba(1,20,37,0.10);
+      --font-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      --font-display:'Playfair Display',Georgia,'Times New Roman',serif;
+      --radius-sm:8px; --radius-md:14px; --radius-lg:20px;
+      --transition-fast:0.2s cubic-bezier(0.4,0,0.2,1);
+      --transition-smooth:0.35s cubic-bezier(0.4,0,0.2,1);
+      --transition-spring:0.5s cubic-bezier(0.34,1.56,0.64,1);
+      --nav-height:72px;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:var(--font-sans);color:var(--text-primary);background:var(--white);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    button{font-family:inherit;cursor:pointer;border:none;background:none}
+    ul{list-style:none}
+    h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.2}
+    h1{font-size:clamp(2.2rem,5vw,3.6rem)}
+    h2{font-size:clamp(1.8rem,4vw,2.8rem)}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeInScale{from{opacity:0;transform:scale(0.92)}to{opacity:1;transform:scale(1)}}
+    @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+
+    .section-label{display:inline-block;font-size:0.8rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--steel-blue);margin-bottom:0.5rem}
+    .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 1.8rem;font-size:0.95rem;font-weight:600;border-radius:9999px;transition:var(--transition-smooth);min-height:48px;min-width:44px;justify-content:center}
+    .btn-primary{background:var(--steel-blue);color:var(--white)}
+    .btn-primary:hover{background:var(--deep-teal);transform:translateY(-2px);box-shadow:0 8px 28px rgba(92,124,137,0.35)}
+    .btn-lg{padding:1rem 2.4rem;font-size:1.05rem}
+
+    /* NAV */
+    .nav{position:fixed;top:0;left:0;width:100%;z-index:1000;height:var(--nav-height);background:rgba(1,20,37,0.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 2px 24px rgba(0,0,0,0.25)}
+    .nav__inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:1200px;margin:0 auto;padding:0 1.5rem}
+    .nav__logo{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--white)}
+    .nav__logo span{color:var(--steel-blue)}
+    .nav__links{display:flex;gap:0.4rem;align-items:center}
+    .nav__links a{padding:0.55rem 1.05rem;border-radius:9999px;font-size:0.9rem;font-weight:500;color:rgba(255,255,255,0.78);transition:var(--transition-fast);min-height:44px;display:flex;align-items:center}
+    .nav__links a:hover,.nav__links a.active{color:var(--white);background:rgba(255,255,255,0.08)}
+    .nav__cta{background:var(--steel-blue)!important;color:var(--white)!important;font-weight:600!important}
+    .nav__cta:hover{background:var(--deep-teal)!important}
+    .nav__toggle{display:none;flex-direction:column;gap:5px;padding:10px;min-height:44px;min-width:44px;align-items:center;justify-content:center;z-index:1001}
+    .nav__toggle span{display:block;width:26px;height:2.5px;background:var(--white);border-radius:4px;transition:var(--transition-spring);transform-origin:center}
+    .nav__toggle.active span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+    .nav__toggle.active span:nth-child(2){opacity:0}
+    .nav__toggle.active span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+    .mobile-menu{position:fixed;inset:0;background:var(--midnight);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;opacity:0;pointer-events:none;transition:opacity 0.4s ease}
+    .mobile-menu.active{opacity:1;pointer-events:auto}
+    .mobile-menu a{font-size:1.5rem;font-weight:600;color:var(--white);padding:0.9rem 2rem;border-radius:9999px;transition:var(--transition-fast);min-height:52px;display:flex;align-items:center}
+    .mobile-menu a:hover{background:rgba(255,255,255,0.08)}
+
+    .page-hero{min-height:45vh;display:flex;align-items:center;justify-content:center;background:var(--midnight);color:var(--white);position:relative;text-align:center;padding:calc(var(--nav-height) + 3rem) 1.5rem 4rem;overflow:hidden}
+    .page-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%, rgba(31,73,89,0.4) 0%, transparent 60%);z-index:0}
+    .page-hero__content{position:relative;z-index:2}
+    .page-hero__content p{color:rgba(255,255,255,0.65);max-width:500px;margin:1rem auto 0;font-size:1.1rem}
+
+    .section{padding:5rem 1.5rem}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;max-width:1000px;margin:0 auto}
+    .contact-form{display:flex;flex-direction:column;gap:1.2rem}
+    .form-group{position:relative}
+    .form-group input,.form-group textarea,.form-group select{width:100%;padding:0.9rem 1rem;border:1.5px solid var(--border-light);border-radius:var(--radius-md);font-size:0.95rem;font-family:var(--font-sans);transition:var(--transition-fast);background:var(--white);color:var(--near-black);outline:none}
+    .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--steel-blue);box-shadow:0 0 0 3px rgba(92,124,137,0.12)}
+    .form-group textarea{resize:vertical;min-height:130px}
+    .form-group label{position:absolute;left:1rem;top:0.9rem;font-size:0.95rem;color:var(--text-muted);pointer-events:none;transition:var(--transition-fast);background:var(--white);padding:0 0.3rem}
+    .form-group input:focus~label,.form-group input:not(:placeholder-shown)~label,.form-group textarea:focus~label,.form-group textarea:not(:placeholder-shown)~label{top:-0.55rem;font-size:0.75rem;color:var(--steel-blue);font-weight:600}
+    .form-group input::placeholder,.form-group textarea::placeholder{color:transparent}
+
+    .contact-info{display:flex;flex-direction:column;gap:2rem}
+    .contact-info__item{display:flex;gap:1rem;align-items:flex-start}
+    .contact-info__icon{font-size:1.5rem;flex-shrink:0;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:rgba(92,124,137,0.1);border-radius:var(--radius-sm)}
+    .contact-info__text h4{font-size:1rem;margin-bottom:0.2rem}
+    .contact-info__text p{color:var(--text-muted);font-size:0.9rem}
+
+    .form-success{display:none;text-align:center;padding:2rem;background:rgba(92,124,137,0.08);border-radius:var(--radius-lg)}
+    .form-success.visible{display:block;animation:fadeInScale 0.4s ease forwards}
+    .form-success .icon{font-size:3rem;margin-bottom:0.5rem}
+
+    .footer{background:var(--near-black);color:rgba(255,255,255,0.6);padding:3rem 1.5rem 1.5rem}
+    .footer__inner{max-width:1100px;margin:0 auto;display:flex;justify-content:center;text-align:center}
+    .footer__brand h3{font-family:var(--font-display);color:var(--white);font-size:1.3rem;margin-bottom:0.4rem}
+    .footer__brand p{font-size:0.88rem}
+    .footer__bottom{text-align:center;font-size:0.8rem;padding-top:2rem;margin-top:2rem;border-top:1px solid rgba(255,255,255,0.08);max-width:1100px;margin-left:auto;margin-right:auto}
+
+    .scroll-top{position:fixed;bottom:1.5rem;right:1.5rem;width:48px;height:48px;background:var(--steel-blue);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:var(--shadow-md);opacity:0;pointer-events:none;transform:translateY(10px);transition:var(--transition-smooth);z-index:900}
+    .scroll-top.visible{opacity:1;pointer-events:auto;transform:translateY(0)}
+    .scroll-top:hover{background:var(--deep-teal);transform:translateY(-3px)}
+
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s cubic-bezier(0.4,0,0.2,1)}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .reveal-delay-1{transition-delay:0.1s}
+
+    @media(max-width:1024px){.contact-grid{grid-template-columns:1fr;gap:2.5rem}}
+    @media(max-width:768px){.nav__links{display:none}.nav__toggle{display:flex}}
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">MI<span>.</span></a>
+      <nav class="nav__links">
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="gallery.html">Gallery</a>
+        <a href="pricing.html">Pricing</a><a href="contact.html" class="nav__cta active">Get In Touch</a>
+      </nav>
+      <button class="nav__toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+  <div class="mobile-menu">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="gallery.html">Gallery</a>
+    <a href="pricing.html">Pricing</a><a href="contact.html" class="nav__cta">Get In Touch</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="page-hero__content">
+      <span class="section-label">Contact</span>
+      <h1>Let's Connect</h1>
+      <p>Have a project in mind? Fill out the form and I'll get back to you within 24 hours.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="contact-grid">
+      <div class="reveal">
+        <form class="contact-form" novalidate>
+          <div class="form-group">
+            <input type="text" id="name" placeholder=" " required>
+            <label for="name">Your Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" placeholder=" " required>
+            <label for="email">Email Address</label>
+          </div>
+          <div class="form-group">
+            <select id="service" required>
+              <option value="" disabled selected></option>
+              <option value="content">Content Creation</option>
+              <option value="commercial">Commercial Product</option>
+              <option value="portrait">Portrait Photography</option>
+              <option value="candid">Candid Moments</option>
+              <option value="other">Other / Multiple</option>
+            </select>
+            <label for="service">Service Interested In</label>
+          </div>
+          <div class="form-group">
+            <textarea id="message" placeholder=" " required></textarea>
+            <label for="message">Tell Me About Your Project</label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+        </form>
+        <div class="form-success">
+          <div class="icon">✅</div>
+          <h3>Message Sent!</h3>
+          <p>Thank you for reaching out. I'll get back to you within 24 hours.</p>
+        </div>
+      </div>
+      <div class="contact-info reveal reveal-delay-1">
+        <div class="contact-info__item">
+          <div class="contact-info__icon">📧</div>
+          <div class="contact-info__text"><h4>Email</h4><p>mohamedibrahima557@gmail.com</p></div>
+        </div>
+        <div class="contact-info__item">
+          <div class="contact-info__icon">📍</div>
+          <div class="contact-info__text"><h4>Location</h4><p>Chennai</p></div>
+        </div>
+        <div class="contact-info__item">
+          <div class="contact-info__icon">⏱️</div>
+          <div class="contact-info__text"><h4>Response Time</h4><p>I typically reply within 24 hours on business days</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner"><div class="footer__brand"><h3>Mohamed Ibrahim</h3><p>Mobile Photographer & Videographer<br>Shot on Realme P1 5G</p></div></div>
+    <div class="footer__bottom"><p>&copy; 2026 Mohamed Ibrahim. All rights reserved.</p></div>
+  </footer>
+
+  <button class="scroll-top">↑</button>
+
+  <script>
+    (function(){
+      const nav=document.querySelector('.nav'),navToggle=document.querySelector('.nav__toggle'),mobileMenu=document.querySelector('.mobile-menu'),mobileLinks=mobileMenu?.querySelectorAll('a'),scrollTopBtn=document.querySelector('.scroll-top'),reveals=document.querySelectorAll('.reveal'),contactForm=document.querySelector('.contact-form'),formSuccess=document.querySelector('.form-success');
+      function uNav(){nav.classList.toggle('nav--scrolled',window.scrollY>50)}
+      function oMenu(){navToggle?.classList.add('active');mobileMenu?.classList.add('active');document.body.style.overflow='hidden'}
+      function cMenu(){navToggle?.classList.remove('active');mobileMenu?.classList.remove('active');document.body.style.overflow=''}
+      navToggle?.addEventListener('click',()=>{mobileMenu?.classList.contains('active')?cMenu():oMenu()});
+      mobileLinks?.forEach(l=>l.addEventListener('click',cMenu));
+      document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mobileMenu?.classList.contains('active'))cMenu()});
+      const cp=window.location.pathname.split('/').pop()||'index.html';
+      document.querySelectorAll('.nav__links a, .mobile-menu a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')===cp));
+      if(reveals.length){const o=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');o.unobserve(x.target)}})},{threshold:0.15,rootMargin:'0px 0px -40px 0px'});reveals.forEach(el=>o.observe(el))}
+      if(contactForm){contactForm.addEventListener('submit',e=>{e.preventDefault();const n=contactForm.querySelector('#name')?.value.trim(),em=contactForm.querySelector('#email')?.value.trim(),msg=contactForm.querySelector('#message')?.value.trim();if(!n||!em||!msg){contactForm.style.animation='shake 0.5s ease';setTimeout(()=>contactForm.style.animation='',500);return}if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){contactForm.querySelector('#email')?.focus();return}const btn=contactForm.querySelector('button[type="submit"]'),ot=btn?.textContent;if(btn){btn.textContent='Sending...';btn.disabled=true}setTimeout(()=>{contactForm.style.display='none';if(formSuccess)formSuccess.classList.add('visible');if(btn){btn.textContent=ot;btn.disabled=false}},1200)})}
+      function uST(){scrollTopBtn?.classList.toggle('visible',window.scrollY>600)}
+      scrollTopBtn?.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+      let t=false;window.addEventListener('scroll',()=>{if(!t){requestAnimationFrame(()=>{uNav();uST();t=false});t=true}},{passive:true});
+    })();
+  </script>
+</body>
+</html>

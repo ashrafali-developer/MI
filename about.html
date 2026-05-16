@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Mohamed Ibrahim — Mobile photographer & videographer. Shooting on Realme P1 5G. Specializing in content creation, commercial products, portraits, candid photography.">
+  <title>About — Mohamed Ibrahim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white:#FFFFFF; --near-black:#242424; --steel-blue:#5C7C89; --deep-teal:#1F4959; --midnight:#011425;
+      --text-primary:#242424; --text-on-dark:#FFFFFF; --text-muted:#6b7b8a;
+      --border-light:#e2e8f0; --shadow-md:0 4px 20px rgba(1,20,37,0.10);
+      --font-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      --font-display:'Playfair Display',Georgia,'Times New Roman',serif;
+      --radius-sm:8px; --radius-md:14px; --radius-lg:20px; --radius-xl:28px;
+      --transition-fast:0.2s cubic-bezier(0.4,0,0.2,1);
+      --transition-smooth:0.35s cubic-bezier(0.4,0,0.2,1);
+      --transition-spring:0.5s cubic-bezier(0.34,1.56,0.64,1);
+      --nav-height:72px;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:var(--font-sans);color:var(--text-primary);background:var(--white);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    img{max-width:100%;height:auto;display:block}
+    a{color:inherit;text-decoration:none}
+    button{font-family:inherit;cursor:pointer;border:none;background:none}
+    ul{list-style:none}
+    h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.2}
+    h1{font-size:clamp(2.2rem,5vw,3.6rem)}
+    h2{font-size:clamp(1.8rem,4vw,2.8rem)}
+    h3{font-size:clamp(1.2rem,2.5vw,1.6rem)}
+
+    .section-label{display:inline-block;font-size:0.8rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--steel-blue);margin-bottom:0.5rem}
+    .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 1.8rem;font-size:0.95rem;font-weight:600;border-radius:9999px;transition:var(--transition-smooth);white-space:nowrap;min-height:48px;min-width:44px;justify-content:center}
+    .btn-primary{background:var(--steel-blue);color:var(--white)}
+    .btn-primary:hover{background:var(--deep-teal);transform:translateY(-2px);box-shadow:0 8px 28px rgba(92,124,137,0.35)}
+    .btn-lg{padding:1rem 2.4rem;font-size:1.05rem}
+
+    /* NAV */
+    .nav{position:fixed;top:0;left:0;width:100%;z-index:1000;height:var(--nav-height);transition:var(--transition-smooth);background:rgba(1,20,37,0.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 2px 24px rgba(0,0,0,0.25)}
+    .nav__inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:1200px;margin:0 auto;padding:0 1.5rem}
+    .nav__logo{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--white)}
+    .nav__logo span{color:var(--steel-blue)}
+    .nav__links{display:flex;gap:0.4rem;align-items:center}
+    .nav__links a{padding:0.55rem 1.05rem;border-radius:9999px;font-size:0.9rem;font-weight:500;color:rgba(255,255,255,0.78);transition:var(--transition-fast);min-height:44px;display:flex;align-items:center}
+    .nav__links a:hover,.nav__links a.active{color:var(--white);background:rgba(255,255,255,0.08)}
+    .nav__cta{background:var(--steel-blue)!important;color:var(--white)!important;font-weight:600!important}
+    .nav__cta:hover{background:var(--deep-teal)!important}
+    .nav__toggle{display:none;flex-direction:column;gap:5px;padding:10px;min-height:44px;min-width:44px;align-items:center;justify-content:center;z-index:1001}
+    .nav__toggle span{display:block;width:26px;height:2.5px;background:var(--white);border-radius:4px;transition:var(--transition-spring);transform-origin:center}
+    .nav__toggle.active span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+    .nav__toggle.active span:nth-child(2){opacity:0}
+    .nav__toggle.active span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+    .mobile-menu{position:fixed;inset:0;background:var(--midnight);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;opacity:0;pointer-events:none;transition:opacity 0.4s ease}
+    .mobile-menu.active{opacity:1;pointer-events:auto}
+    .mobile-menu a{font-size:1.5rem;font-weight:600;color:var(--white);padding:0.9rem 2rem;border-radius:9999px;transition:var(--transition-fast);min-height:52px;display:flex;align-items:center}
+    .mobile-menu a:hover{background:rgba(255,255,255,0.08)}
+
+    /* PAGE HERO */
+    .page-hero{min-height:50vh;display:flex;align-items:center;justify-content:center;background:var(--midnight);color:var(--white);position:relative;text-align:center;padding:calc(var(--nav-height) + 3rem) 1.5rem 4rem;overflow:hidden}
+    .page-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%, rgba(31,73,89,0.4) 0%, transparent 60%);z-index:0}
+    .page-hero__content{position:relative;z-index:2}
+    .page-hero__content p{color:rgba(255,255,255,0.65);max-width:500px;margin:1rem auto 0;font-size:1.1rem}
+
+    .section{padding:6rem 1.5rem}
+    .about-split{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1100px;margin:0 auto}
+    .about-image{border-radius:var(--radius-xl);overflow:hidden;position:relative}
+    .about-image img{width:100%;aspect-ratio:4/5;object-fit:cover}
+    .about-image__accent{position:absolute;bottom:-16px;right:-16px;width:120px;height:120px;background:var(--steel-blue);border-radius:var(--radius-lg);z-index:-1;animation:pulseAccent 3s ease-in-out infinite}
+    @keyframes pulseAccent{0%,100%{transform:scale(1);opacity:0.7}50%{transform:scale(1.08);opacity:1}}
+    .about-text h2{margin-bottom:1.2rem}
+    .about-text p{color:var(--text-muted);margin-bottom:1rem;font-size:1rem}
+    .about-text .highlight{color:var(--deep-teal);font-weight:600}
+
+    .gear-card{display:flex;align-items:center;gap:1.2rem;background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:1.5rem;margin-top:1.5rem;transition:var(--transition-smooth)}
+    .gear-card:hover{box-shadow:var(--shadow-md)}
+    .gear-card__icon{font-size:2.5rem;flex-shrink:0}
+    .gear-card h4{font-size:1rem;margin-bottom:0.2rem}
+    .gear-card p{font-size:0.88rem;color:var(--text-muted);margin:0}
+
+    .specialties-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.8rem;margin-top:1.8rem}
+    .specialty-tag{display:flex;align-items:center;gap:0.6rem;padding:0.7rem 1.1rem;background:rgba(92,124,137,0.08);border-radius:9999px;font-weight:500;font-size:0.88rem;transition:var(--transition-fast)}
+    .specialty-tag:hover{background:rgba(92,124,137,0.18)}
+    .specialty-tag .dot{width:8px;height:8px;border-radius:50%;background:var(--steel-blue);flex-shrink:0}
+
+    .cta-banner{text-align:center;padding:5rem 1.5rem;background:var(--midnight);color:var(--white);position:relative;overflow:hidden}
+    .cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(31,73,89,0.5) 0%, transparent 70%)}
+    .cta-banner__content{position:relative;z-index:1}
+    .cta-banner h2{margin-bottom:0.8rem}
+    .cta-banner p{color:rgba(255,255,255,0.6);margin-bottom:2rem;max-width:480px;margin-left:auto;margin-right:auto}
+
+    .footer{background:var(--near-black);color:rgba(255,255,255,0.6);padding:3rem 1.5rem 1.5rem}
+    .footer__inner{max-width:1100px;margin:0 auto;display:flex;justify-content:center;text-align:center}
+    .footer__brand h3{font-family:var(--font-display);color:var(--white);font-size:1.3rem;margin-bottom:0.4rem}
+    .footer__brand p{font-size:0.88rem}
+    .footer__bottom{text-align:center;font-size:0.8rem;padding-top:2rem;margin-top:2rem;border-top:1px solid rgba(255,255,255,0.08);max-width:1100px;margin-left:auto;margin-right:auto}
+
+    .scroll-top{position:fixed;bottom:1.5rem;right:1.5rem;width:48px;height:48px;background:var(--steel-blue);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:var(--shadow-md);opacity:0;pointer-events:none;transform:translateY(10px);transition:var(--transition-smooth);z-index:900}
+    .scroll-top.visible{opacity:1;pointer-events:auto;transform:translateY(0)}
+    .scroll-top:hover{background:var(--deep-teal);transform:translateY(-3px)}
+
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s cubic-bezier(0.4,0,0.2,1)}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .reveal-delay-1{transition-delay:0.1s}
+    .reveal-delay-2{transition-delay:0.2s}
+    .reveal-delay-3{transition-delay:0.3s}
+
+    @media(max-width:1024px){.about-split{grid-template-columns:1fr;gap:2rem}.about-image{max-width:450px;margin:0 auto}}
+    @media(max-width:768px){.nav__links{display:none}.nav__toggle{display:flex}.section{padding:4rem 1.2rem}}
+    @media(max-width:480px){.about-image__accent{width:80px;height:80px;bottom:-10px;right:-10px}}
+
+
+
+        /* Hover animation for the about portrait */
+.about-image {
+  overflow: hidden;  /* already present, but ensures zoom doesn't spill */
+}
+
+.about-image img {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              filter 0.4s ease;
+}
+
+.about-image:hover img {
+  transform: scale(1.04);
+  filter: brightness(1.05) contrast(1.02);
+}
+
+/* Keep the accent pulsing even on hover */
+.about-image:hover .about-image__accent {
+  animation-play-state: paused;
+  transform: scale(1.12);
+  opacity: 0.9;
+}
+
+
+
+
+
+  </style>
+</head>
+<body>
+
+
+
+
+
+
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">MI<span>.</span></a>
+      <nav class="nav__links">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html" class="nav__cta">Get In Touch</a>
+      </nav>
+      <button class="nav__toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+  <div class="mobile-menu">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="gallery.html">Gallery</a>
+    <a href="pricing.html">Pricing</a><a href="contact.html" class="nav__cta">Get In Touch</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="page-hero__content">
+      <span class="section-label">About Me</span>
+      <h1>The Person Behind the Lens</h1>
+      <p>Passionate about storytelling through mobile photography — no fancy gear, just a keen eye and a Realme P1 5G.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="about-split">
+      <div class="about-image reveal">
+        <!-- CHANGE THE src TO YOUR ACTUAL IMAGE PATH -->
+        <img src="images/img.jpeg" alt="Mohamed Ibrahim with his Realme P1 5G" loading="lazy"
+             onerror="this.style.display='none'; this.parentElement.querySelector('.photo-placeholder').style.display='flex'">
+        <!-- Placeholder (hidden unless image fails to load) -->
+        <div class="photo-placeholder" style="display:none; width:100%; aspect-ratio:4/5; background:rgba(92,124,137,0.08); border:2px dashed rgba(92,124,137,0.3); border-radius:var(--radius-xl); align-items:center; justify-content:center; flex-direction:column; gap:0.5rem;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#5C7C89" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 22c0-4.418 3.582-8 8-8s8 3.582 8 8"/></svg>
+          <span style="font-size:0.78rem;color:#5C7C89;font-weight:500;">Image not found</span>
+        </div>
+        <div class="about-image__accent"></div>
+      </div>
+      <!-- … rest of about-text unchanged … -->
+      <div class="about-text reveal reveal-delay-1">
+        <span class="section-label">My Story</span>
+        <h2>Hi, I'm Mohamed Ibrahim</h2>
+        <p>I'm a <span class="highlight">mobile photographer and videographer</span> based in India, capturing compelling visuals entirely on my <span class="highlight">Realme P1 5G</span>. What started as a passion for documenting everyday moments has grown into a full‑fledged creative service.</p>
+        <p>I believe that <span class="highlight">you don't need expensive gear to create stunning work</span>. With the right eye for composition, lighting, and editing, a mobile phone can produce results that rival professional cameras.</p>
+        <p>My work spans <span class="highlight">content creation</span> for social media, <span class="highlight">commercial product photography</span>, expressive <span class="highlight">portraits</span>, and authentic <span class="highlight">candid moments</span>.</p>
+        <div class="gear-card reveal reveal-delay-2">
+          <span class="gear-card__icon">📱</span>
+          <div><h4>My Primary Camera — Realme P1 5G</h4><p>50MP AI camera • Pro mode • 4K video. All visuals shot & edited on this device.</p></div>
+        </div>
+        <div class="specialties-list reveal reveal-delay-3">
+          <div class="specialty-tag"><span class="dot"></span> Content Creation</div>
+          <div class="specialty-tag"><span class="dot"></span> Commercial Product</div>
+          <div class="specialty-tag"><span class="dot"></span> Portrait Photography</div>
+          <div class="specialty-tag"><span class="dot"></span> Candid Moments</div>
+          <div class="specialty-tag"><span class="dot"></span> Mobile Editing</div>
+          <div class="specialty-tag"><span class="dot"></span> DaVinci Resolve</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner reveal">
+    <div class="cta-banner__content">
+      <span class="section-label">Let's Work</span>
+      <h2>Ready to Create Something Great?</h2>
+      <p>I'd love to hear about your project. Let's make visuals that get noticed.</p>
+      <a href="contact.html" class="btn btn-primary btn-lg">Get In Touch</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner"><div class="footer__brand"><h3>Mohamed Ibrahim</h3><p>Mobile Photographer & Videographer<br>Shot on Realme P1 5G</p></div></div>
+    <div class="footer__bottom"><p>&copy; 2026 Mohamed Ibrahim. All rights reserved.</p></div>
+  </footer>
+
+  <button class="scroll-top">↑</button>
+
+  <script>
+    (function(){
+      const nav=document.querySelector('.nav'),navToggle=document.querySelector('.nav__toggle'),mobileMenu=document.querySelector('.mobile-menu'),mobileLinks=mobileMenu?.querySelectorAll('a'),scrollTopBtn=document.querySelector('.scroll-top'),reveals=document.querySelectorAll('.reveal');
+      function updateNav(){nav.classList.toggle('nav--scrolled',window.scrollY>50)}
+      function openMenu(){navToggle?.classList.add('active');mobileMenu?.classList.add('active');document.body.style.overflow='hidden'}
+      function closeMenu(){navToggle?.classList.remove('active');mobileMenu?.classList.remove('active');document.body.style.overflow=''}
+      navToggle?.addEventListener('click',()=>{mobileMenu?.classList.contains('active')?closeMenu():openMenu()});
+      mobileLinks?.forEach(l=>l.addEventListener('click',closeMenu));
+      document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mobileMenu?.classList.contains('active'))closeMenu()});
+      const cp=window.location.pathname.split('/').pop()||'index.html';
+      document.querySelectorAll('.nav__links a, .mobile-menu a').forEach(a=>{a.classList.toggle('active',a.getAttribute('href')===cp)});
+      if(reveals.length){const o=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');o.unobserve(x.target)}})},{threshold:0.15,rootMargin:'0px 0px -40px 0px'});reveals.forEach(el=>o.observe(el))}
+      function uST(){scrollTopBtn?.classList.toggle('visible',window.scrollY>600)}
+      scrollTopBtn?.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+      let t=false;window.addEventListener('scroll',()=>{if(!t){requestAnimationFrame(()=>{updateNav();uST();t=false});t=true}},{passive:true});
+    })();
+  </script>
+</body>
+</html>

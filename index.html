@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mohamed Ibrahim — Mobile Photographer & Videographer. Content creation, commercial products, portraits, candid moments. Shot on Realme P1 5G. Edited on DaVinci Resolve.">
+  <title>Mohamed Ibrahim | Photographer & Videographer</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- ===== EMBEDDED CSS ===== -->
+  <style>
+    :root {
+      --white:        #FFFFFF;
+      --near-black:   #242424;
+      --steel-blue:   #5C7C89;
+      --deep-teal:    #1F4959;
+      --midnight:     #011425;
+      --text-primary:   #242424;
+      --text-on-dark:   #FFFFFF;
+      --text-muted:     #6b7b8a;
+      --bg-light:       #FFFFFF;
+      --bg-dark:        #011425;
+      --bg-mid:         #1F4959;
+      --accent:         #5C7C89;
+      --accent-hover:   #4a6b78;
+      --border-light:   #e2e8f0;
+      --shadow-sm:      0 1px 3px rgba(1,20,37,0.08);
+      --shadow-md:      0 4px 20px rgba(1,20,37,0.10);
+      --shadow-lg:      0 12px 40px rgba(1,20,37,0.14);
+      --shadow-xl:      0 24px 56px rgba(1,20,37,0.18);
+      --font-sans:      'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-display:   'Playfair Display', Georgia, 'Times New Roman', serif;
+      --radius-sm:      8px;
+      --radius-md:      14px;
+      --radius-lg:      20px;
+      --radius-xl:      28px;
+      --transition-fast:     0.2s cubic-bezier(0.4,0,0.2,1);
+      --transition-smooth:   0.35s cubic-bezier(0.4,0,0.2,1);
+      --transition-spring:   0.5s cubic-bezier(0.34,1.56,0.64,1);
+      --nav-height: 72px;
+    }
+
+    *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; font-size:16px; }
+    body {
+      font-family:var(--font-sans); color:var(--text-primary); background:var(--white);
+      line-height:1.7; overflow-x:hidden; -webkit-font-smoothing:antialiased;
+    }
+    img { max-width:100%; height:auto; display:block; }
+    a { color:inherit; text-decoration:none; }
+    button { font-family:inherit; cursor:pointer; border:none; background:none; }
+    ul { list-style:none; }
+
+    h1,h2,h3,h4 { font-family:var(--font-display); font-weight:700; line-height:1.2; }
+    h1 { font-size:clamp(2.6rem,6vw,4.8rem); letter-spacing:-0.02em; }
+    h2 { font-size:clamp(2rem,4.5vw,3.2rem); letter-spacing:-0.01em; }
+    h3 { font-size:clamp(1.3rem,2.5vw,1.8rem); }
+
+    .section-label {
+      display:inline-block; font-size:0.8rem; font-weight:600; letter-spacing:0.12em;
+      text-transform:uppercase; color:var(--steel-blue); margin-bottom:0.5rem;
+    }
+
+    .btn {
+      display:inline-flex; align-items:center; gap:0.5rem; padding:0.85rem 1.8rem;
+      font-size:0.95rem; font-weight:600; border-radius:9999px;
+      transition:var(--transition-smooth); white-space:nowrap; min-height:48px;
+      min-width:44px; justify-content:center;
+    }
+    .btn-primary { background:var(--steel-blue); color:var(--white); }
+    .btn-primary:hover,.btn-primary:focus-visible {
+      background:var(--deep-teal); transform:translateY(-2px); box-shadow:0 8px 28px rgba(92,124,137,0.35);
+    }
+    .btn-outline { background:transparent; color:var(--white); border:2px solid rgba(255,255,255,0.45); }
+    .btn-outline:hover,.btn-outline:focus-visible {
+      border-color:var(--white); background:rgba(255,255,255,0.08); transform:translateY(-2px);
+    }
+    .btn-lg { padding:1rem 2.4rem; font-size:1.05rem; }
+
+    /* NAV */
+    .nav {
+      position:fixed; top:0; left:0; width:100%; z-index:1000;
+      height:var(--nav-height); transition:var(--transition-smooth);
+    }
+    .nav--scrolled {
+      background:rgba(1,20,37,0.92); backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px); box-shadow:0 2px 24px rgba(0,0,0,0.25);
+    }
+    .nav__inner {
+      display:flex; align-items:center; justify-content:space-between; height:100%;
+      max-width:1200px; margin:0 auto; padding:0 1.5rem;
+    }
+    .nav__logo { font-family:var(--font-display); font-size:1.5rem; font-weight:700; color:var(--white); }
+    .nav__logo span { color:var(--steel-blue); }
+    .nav__links { display:flex; gap:0.4rem; align-items:center; }
+    .nav__links a {
+      padding:0.55rem 1.05rem; border-radius:9999px; font-size:0.9rem; font-weight:500;
+      color:rgba(255,255,255,0.78); transition:var(--transition-fast); min-height:44px;
+      display:flex; align-items:center;
+    }
+    .nav__links a:hover,.nav__links a:focus-visible,.nav__links a.active {
+      color:var(--white); background:rgba(255,255,255,0.08);
+    }
+    .nav__cta { background:var(--steel-blue) !important; color:var(--white) !important; font-weight:600 !important; }
+    .nav__cta:hover { background:var(--deep-teal) !important; }
+
+    .nav__toggle {
+      display:none; flex-direction:column; gap:5px; padding:10px; min-height:44px;
+      min-width:44px; align-items:center; justify-content:center; z-index:1001;
+    }
+    .nav__toggle span {
+      display:block; width:26px; height:2.5px; background:var(--white); border-radius:4px;
+      transition:var(--transition-spring); transform-origin:center;
+    }
+    .nav__toggle.active span:nth-child(1) { transform:translateY(7.5px) rotate(45deg); }
+    .nav__toggle.active span:nth-child(2) { opacity:0; }
+    .nav__toggle.active span:nth-child(3) { transform:translateY(-7.5px) rotate(-45deg); }
+
+    .mobile-menu {
+      position:fixed; inset:0; background:var(--midnight); z-index:999;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      gap:0.5rem; opacity:0; pointer-events:none; transition:opacity 0.4s ease;
+    }
+    .mobile-menu.active { opacity:1; pointer-events:auto; }
+    .mobile-menu a {
+      font-size:1.5rem; font-weight:600; color:var(--white); padding:0.9rem 2rem;
+      border-radius:9999px; transition:var(--transition-fast); min-height:52px;
+      display:flex; align-items:center;
+    }
+    .mobile-menu a:hover { background:rgba(255,255,255,0.08); }
+
+    /* HERO */
+    .hero {
+      min-height:100vh; display:flex; align-items:center; justify-content:center;
+      background:var(--midnight); color:var(--white); position:relative; overflow:hidden;
+      padding:calc(var(--nav-height) + 2rem) 1.5rem 4rem;
+    }
+    .hero__bg {
+      position:absolute; inset:0;
+      background:radial-gradient(ellipse at 20% 30%, rgba(31,73,89,0.5) 0%, transparent 60%),
+                 radial-gradient(ellipse at 75% 60%, rgba(92,124,137,0.25) 0%, transparent 50%), var(--midnight);
+      z-index:0;
+    }
+    .hero__grid-overlay {
+      position:absolute; inset:0;
+      background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),
+                       linear-gradient(90deg, rgba(255,255,255,0.025) 1px,transparent 1px);
+      background-size:50px 50px; z-index:1;
+      animation:gridShift 20s linear infinite, gridPulse 8s ease-in-out infinite;
+    }
+    @keyframes gridShift { 0%{transform:translate(0,0)} 100%{transform:translate(50px,50px)} }
+    @keyframes gridPulse { 0%,100%{opacity:0.7} 50%{opacity:1} }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeInScale { from{opacity:0;transform:scale(0.92)} to{opacity:1;transform:scale(1)} }
+    @keyframes bounceDown { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(10px)} }
+    @keyframes breatheZoom { 0%,100%{transform:scale(1)} 50%{transform:scale(1.015)} }
+
+    .hero__content { position:relative; z-index:2; text-align:center; max-width:800px; }
+    .hero__content .section-label { opacity:0; animation:fadeUp 0.7s ease forwards 0.2s; }
+    .hero__content h1 { margin:1rem 0; opacity:0; animation:fadeUp 0.7s ease forwards 0.4s; }
+    .hero__content h1 em { font-style:normal; color:var(--steel-blue); }
+    .hero__content .hero__subtitle {
+      font-size:clamp(1rem,2vw,1.25rem); color:rgba(255,255,255,0.7);
+      max-width:540px; margin:0 auto 2rem; opacity:0; animation:fadeUp 0.7s ease forwards 0.6s;
+    }
+    .hero__buttons {
+      display:flex; flex-wrap:wrap; gap:1rem; justify-content:center;
+      opacity:0; animation:fadeUp 0.7s ease forwards 0.8s;
+    }
+    .hero__tools {
+      display:flex; flex-wrap:wrap; gap:0.8rem; justify-content:center; margin-top:1.8rem;
+      opacity:0; animation:fadeUp 0.7s ease forwards 1.0s;
+    }
+    .hero__tool-badge {
+      display:inline-flex; align-items:center; gap:0.45rem; padding:0.45rem 1rem;
+      background:rgba(92,124,137,0.15); border:1px solid rgba(92,124,137,0.3);
+      border-radius:9999px; font-size:0.8rem; font-weight:500; color:rgba(255,255,255,0.85);
+      transition:var(--transition-smooth);
+    }
+    .hero__tool-badge:hover { background:rgba(92,124,137,0.3); border-color:var(--steel-blue); transform:translateY(-2px); }
+    .hero__tool-badge .tool-dot { width:7px; height:7px; border-radius:50%; background:var(--steel-blue); flex-shrink:0; }
+
+    .hero__scroll-indicator {
+      position:absolute; bottom:2rem; left:50%; transform:translateX(-50%); z-index:2;
+      display:flex; flex-direction:column; align-items:center; gap:0.4rem;
+      color:rgba(255,255,255,0.5); font-size:0.75rem; letter-spacing:0.08em;
+      opacity:0; animation:fadeUp 0.7s ease forwards 1.1s, bounceDown 2s ease infinite 1.5s;
+    }
+    .hero__scroll-indicator .arrow {
+      width:22px; height:22px; border-right:2px solid rgba(255,255,255,0.5);
+      border-bottom:2px solid rgba(255,255,255,0.5); transform:rotate(45deg);
+    }
+
+    /* SCROLL REVEAL */
+    .reveal { opacity:0; transform:translateY(30px); transition:opacity 0.7s ease, transform 0.7s cubic-bezier(0.4,0,0.2,1); }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    .reveal-delay-1 { transition-delay:0.1s; }
+    .reveal-delay-2 { transition-delay:0.2s; }
+    .reveal-delay-3 { transition-delay:0.3s; }
+    .reveal-delay-4 { transition-delay:0.4s; }
+
+    /* SECTION */
+    .section { padding:6rem 1.5rem; }
+    .section__header { text-align:center; max-width:650px; margin:0 auto 4rem; }
+    .section__header h2 { margin-bottom:1rem; }
+    .section__header p { color:var(--text-muted); font-size:1.05rem; }
+    .bg-dark { background:var(--bg-dark); color:var(--text-on-dark); }
+    .bg-dark .section__header p { color:rgba(255,255,255,0.6); }
+
+    /* SERVICES */
+    .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem; max-width:1100px; margin:0 auto; }
+    .service-card {
+      background:var(--white); border:1px solid var(--border-light); border-radius:var(--radius-lg);
+      padding:2.2rem 1.8rem; text-align:center; transition:var(--transition-smooth);
+      position:relative; overflow:hidden;
+    }
+    .service-card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:3px;
+      background:linear-gradient(90deg,var(--steel-blue),var(--deep-teal));
+      transform:scaleX(0); transition:transform 0.4s ease; transform-origin:left;
+    }
+    .service-card:hover::before { transform:scaleX(1); }
+    .service-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+    .service-card__icon {
+      display:flex; align-items:center; justify-content:center; width:60px; height:60px;
+      margin:0 auto 1.2rem; border-radius:16px; background:rgba(92,124,137,0.1);
+      transition:var(--transition-smooth);
+    }
+    .service-card__icon svg { width:28px; height:28px; stroke:var(--steel-blue); fill:none; stroke-width:2; transition:var(--transition-smooth); }
+    .service-card:hover .service-card__icon { background:var(--steel-blue); transform:scale(1.08); }
+    .service-card:hover .service-card__icon svg { stroke:var(--white); }
+    .service-card h3 { margin-bottom:0.6rem; font-size:1.25rem; }
+    .service-card p { color:var(--text-muted); font-size:0.95rem; }
+    .service-card__tool-note {
+      display:inline-flex; align-items:center; gap:0.35rem; margin-top:0.7rem;
+      padding:0.3rem 0.8rem; background:rgba(31,73,89,0.06); border-radius:9999px;
+      font-size:0.78rem; font-weight:500; color:var(--deep-teal);
+    }
+    .service-card__tool-note .mini-dot { width:5px; height:5px; border-radius:50%; background:var(--deep-teal); flex-shrink:0; }
+
+    /* PREVIEW GRID */
+    .preview-grid {
+      display:grid; grid-template-columns:repeat(4,1fr); grid-template-rows:280px 280px;
+      gap:0.8rem; max-width:1100px; margin:0 auto;
+    }
+    .preview-item {
+      border-radius:var(--radius-md); overflow:hidden; position:relative; cursor:pointer;
+      animation:breatheZoom 6s ease-in-out infinite;
+    }
+    .preview-item:nth-child(1) { grid-column:1/3; grid-row:1/2; animation-delay:0s; }
+    .preview-item:nth-child(2) { grid-column:3/5; grid-row:1/2; animation-delay:1.2s; }
+    .preview-item:nth-child(3) { grid-column:1/2; grid-row:2/3; animation-delay:2.4s; }
+    .preview-item:nth-child(4) { grid-column:2/4; grid-row:2/3; animation-delay:3.6s; }
+    .preview-item:nth-child(5) { grid-column:4/5; grid-row:2/3; animation-delay:4.8s; }
+    .preview-item img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease; }
+    .preview-item:hover img { transform:scale(1.08); }
+    .preview-item:hover { animation:none; }
+    .preview-item__label {
+      position:absolute; bottom:0; left:0; right:0; padding:0.6rem;
+      background:linear-gradient(to top, rgba(1,20,37,0.8), transparent);
+      color:var(--white); font-size:0.78rem; font-weight:600; letter-spacing:0.04em;
+      text-align:center; z-index:2; pointer-events:none;
+    }
+    .preview-item__overlay {
+      position:absolute; inset:0; background:linear-gradient(to top, rgba(1,20,37,0.7) 0%, transparent 60%);
+      display:flex; align-items:flex-end; padding:1.2rem; opacity:0; transition:opacity 0.35s ease;
+    }
+    .preview-item:hover .preview-item__overlay { opacity:1; }
+    .preview-item__overlay span { color:var(--white); font-weight:600; font-size:0.9rem; }
+
+    /* PHOTO PLACEHOLDER */
+    .photo-placeholder {
+      width:100%; height:100%; background:rgba(92,124,137,0.08);
+      border:2px dashed rgba(92,124,137,0.3); border-radius:var(--radius-md);
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.6rem;
+    }
+    .photo-placeholder svg { width:40px; height:40px; stroke:var(--steel-blue); fill:none; stroke-width:1.8; opacity:0.5; }
+    .photo-placeholder span { font-size:0.78rem; font-weight:500; color:var(--steel-blue); }
+
+    /* CTA */
+    .cta-banner {
+      text-align:center; padding:5rem 1.5rem; background:var(--midnight); color:var(--white);
+      position:relative; overflow:hidden;
+    }
+    .cta-banner::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse at center, rgba(31,73,89,0.5) 0%, transparent 70%);
+    }
+    .cta-banner__content { position:relative; z-index:1; }
+    .cta-banner h2 { margin-bottom:0.8rem; }
+    .cta-banner p { color:rgba(255,255,255,0.6); margin-bottom:2rem; max-width:480px; margin-left:auto; margin-right:auto; }
+
+    /* FOOTER */
+    .footer {
+      background:var(--near-black); color:rgba(255,255,255,0.6); padding:3rem 1.5rem 1.5rem;
+    }
+    .footer__inner {
+      max-width:1100px; margin:0 auto; display:flex; flex-wrap:wrap;
+      justify-content:center; gap:2rem; text-align:center;
+    }
+    .footer__brand h3 { font-family:var(--font-display); color:var(--white); font-size:1.3rem; margin-bottom:0.4rem; }
+    .footer__brand p { font-size:0.88rem; }
+    .footer__bottom {
+      text-align:center; font-size:0.8rem; padding-top:2rem; margin-top:2rem;
+      border-top:1px solid rgba(255,255,255,0.08); max-width:1100px; margin-left:auto; margin-right:auto;
+    }
+
+    /* SCROLL TOP */
+    .scroll-top {
+      position:fixed; bottom:1.5rem; right:1.5rem; width:48px; height:48px;
+      background:var(--steel-blue); color:var(--white); border-radius:50%;
+      display:flex; align-items:center; justify-content:center; font-size:1.3rem;
+      box-shadow:var(--shadow-md); opacity:0; pointer-events:none; transform:translateY(10px);
+      transition:var(--transition-smooth); z-index:900;
+    }
+    .scroll-top.visible { opacity:1; pointer-events:auto; transform:translateY(0); }
+    .scroll-top:hover { background:var(--deep-teal); transform:translateY(-3px); }
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      .preview-grid { grid-template-columns:repeat(2,1fr); grid-template-rows:auto; }
+      .preview-grid .preview-item:nth-child(1),
+      .preview-grid .preview-item:nth-child(2),
+      .preview-grid .preview-item:nth-child(3),
+      .preview-grid .preview-item:nth-child(4),
+      .preview-grid .preview-item:nth-child(5) { grid-column:auto; grid-row:auto; aspect-ratio:4/3; }
+    }
+    @media(max-width:768px){
+      .nav__links { display:none; }
+      .nav__toggle { display:flex; }
+      .section { padding:4rem 1.2rem; }
+      .hero { padding:calc(var(--nav-height) + 1.5rem) 1.2rem 3rem; }
+      .footer__inner { flex-direction:column; text-align:center; }
+    }
+    @media(max-width:480px){
+      h1 { font-size:2.2rem; }
+      h2 { font-size:1.7rem; }
+      .hero__buttons { flex-direction:column; align-items:center; }
+      .btn { width:100%; max-width:280px; }
+      .services-grid { grid-template-columns:1fr; }
+      .hero__tools { flex-direction:column; align-items:center; gap:0.5rem; }
+      .hero__tool-badge { font-size:0.72rem; padding:0.35rem 0.8rem; }
+    }
+
+
+    /* Video play button hover effect */
+.preview-item:hover .preview-item__play svg {
+  transform: scale(1.15);
+  opacity: 1;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header class="nav" role="banner">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">MI<span>.</span></a>
+      <nav class="nav__links">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html" class="nav__cta">Get In Touch</a>
+      </nav>
+      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" aria-hidden="true">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html" class="nav__cta">Get In Touch</a>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero__bg"></div>
+    <div class="hero__grid-overlay"></div>
+    <div class="hero__content">
+      <span class="section-label">Shot on Realme P1 5G</span>
+      <h1>Capturing <em>Stories</em><br>Through a Mobile Lens</h1>
+      <p class="hero__subtitle">
+        I'm Mohamed Ibrahim — a mobile photographer and videographer creating scroll‑stopping content for brands, products, and people.
+      </p>
+      <div class="hero__buttons">
+        <a href="gallery.html" class="btn btn-primary btn-lg">View My Work</a>
+        <a href="contact.html" class="btn btn-outline btn-lg">Let's Collaborate</a>
+      </div>
+      <div class="hero__tools">
+        <span class="hero__tool-badge"><span class="tool-dot"></span> Realme P1 5G</span>
+        <span class="hero__tool-badge"><span class="tool-dot"></span> DaVinci Resolve</span>
+        
+      </div>
+    </div>
+    <div class="hero__scroll-indicator" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="arrow"></div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="section" id="services">
+    <div class="section__header reveal">
+      <span class="section-label">What I Do</span>
+      <h2>Creative Visual Services</h2>
+      <p>From scroll‑stopping social content to polished commercial product shots — I bring your vision to life using just my mobile.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-card__icon">
+          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21 5,3"/></svg>
+        </div>
+        <h3>Content Creation</h3>
+        <p>Eye‑catching reels, stories, and feed posts tailored for Instagram, TikTok, and beyond.</p>
+        <span class="service-card__tool-note"><span class="mini-dot"></span> Edited on DaVinci Resolve</span>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-card__icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="15" rx="2"/><path d="M3 10h18"/><path d="M12 10v11"/></svg>
+        </div>
+        <h3>Commercial Product</h3>
+        <p>Clean, high‑contrast product photography that makes your brand stand out in any marketplace.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-card__icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 22c0-4.418 3.582-8 8-8s8 3.582 8 8"/></svg>
+        </div>
+        <h3>Portrait Photography</h3>
+        <p>Authentic, well‑composed portraits that capture personality — from professional headshots to creative looks.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-4">
+        <div class="service-card__icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="15" rx="3"/><circle cx="12" cy="12.5" r="4"/><circle cx="7" cy="8" r="1.2"/></svg>
+        </div>
+        <h3>Candid Moments</h3>
+        <p>Unposed, genuine captures for events, street photography, and behind‑the‑scenes storytelling.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED GALLERY PREVIEW ===== -->
+  <!--
+    RENAME YOUR PHOTOS TO THESE NAMES (or edit src="" below):
+      commercial1.jpg  →  Commercial Product
+      portrait1.jpg    →  Portrait
+      candid1.jpg      →  Candid
+      content1.jpg     →  Content Creation
+      product1.jpg     →  Product Detail
+    Place them in the SAME FOLDER as this HTML file.
+  -->
+  <section class="section bg-dark" id="featured">
+    <div class="section__header reveal">
+      <span class="section-label">Recent Work</span>
+      <h2>Selected Favorites</h2>
+      <p>A glimpse into my latest shoots — all captured and edited on mobile.</p>
+    </div>
+    <div class="preview-grid reveal">
+      <!-- 1. Commercial Product -->
+      <div class="preview-item">
+        <img src="commercial1.jpg" alt="Commercial product shoot" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.photo-placeholder').style.display='flex'">
+        <div class="photo-placeholder" style="display:none;">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>commercial1.jpg</span>
+        </div>
+        <div class="preview-item__label">Commercial Product</div>
+      </div>
+      <!-- 2. Landscape -->
+      <div class="preview-item">
+        <img src="images/landscape/l1.jpg" alt="Landscape photography" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.photo-placeholder').style.display='flex'">
+        <div class="photo-placeholder" style="display:none;">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Landscape.jpg</span>
+        </div>
+        <div class="preview-item__label">Landscape</div>
+      </div>
+      <!-- 3. Candid -->
+      <div class="preview-item">
+        <img src="images/candid/c1.jpeg" alt="Candid street moment" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.photo-placeholder').style.display='flex'">
+        <div class="photo-placeholder" style="display:none;">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>candid1.jpg</span>
+        </div>
+        <div class="preview-item__label">Candid</div>
+      </div>
+      <!-- 4. Content Creation (Video) -->
+<div class="preview-item">
+  <img src="content1.jpg" alt="Content creation video" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.photo-placeholder').style.display='flex'">
+  <div class="photo-placeholder" style="display:none;">
+    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+    <span>content1.jpg</span>
+  </div>
+  <!-- Video play button -->
+  <div class="preview-item__play" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none; z-index:3;">
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)" stroke="none" style="filter:drop-shadow(0 2px 8px rgba(0,0,0,0.4)); transition:transform 0.3s ease; opacity:0.85;">
+      <circle cx="12" cy="12" r="12" fill="rgba(0,0,0,0.4)"/>
+      <polygon points="10,8 10,16 16,12" fill="white"/>
+    </svg>
+  </div>
+  <div class="preview-item__label">Content Creation 🎬</div>
+</div>
+      <!-- 5. Product Detail -->
+      <div class="preview-item">
+        <img src="product1.jpg" alt="Product flatlay" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.photo-placeholder').style.display='flex'">
+        <div class="photo-placeholder" style="display:none;">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>product1.jpg</span>
+        </div>
+        <div class="preview-item__label">Product Detail</div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:2.5rem;" class="reveal">
+      <a href="gallery.html" class="btn btn-outline btn-lg">See Full Gallery</a>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-banner reveal">
+    <div class="cta-banner__content">
+      <span class="section-label">Ready to Create?</span>
+      <h2>Let's Make Something Beautiful Together</h2>
+      <p>Whether you need fresh content for your brand or unforgettable portraits — I'm just a message away.</p>
+      <a href="contact.html" class="btn btn-primary btn-lg">Start a Project</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <h3>Mohamed Ibrahim</h3>
+        <p>Mobile Photographer & Videographer<br>Shot on Realme P1 5G</p>
+      </div>
+    </div>    
+    <div class="footer__bottom">
+      <p>&copy; 2026 Mohamed Ibrahim. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button class="scroll-top" aria-label="Scroll to top">↑</button>
+
+  <!-- ===== EMBEDDED JAVASCRIPT ===== -->
+  <script>
+    (function(){
+      'use strict';
+      const nav=document.querySelector('.nav');
+      const navToggle=document.querySelector('.nav__toggle');
+      const mobileMenu=document.querySelector('.mobile-menu');
+      const mobileLinks=mobileMenu?.querySelectorAll('a');
+      const scrollTopBtn=document.querySelector('.scroll-top');
+      const reveals=document.querySelectorAll('.reveal');
+
+      function updateNav(){ if(nav) nav.classList.toggle('nav--scrolled',window.scrollY>50); }
+      function openMenu(){ navToggle?.classList.add('active'); mobileMenu?.classList.add('active'); document.body.style.overflow='hidden'; }
+      function closeMenu(){ navToggle?.classList.remove('active'); mobileMenu?.classList.remove('active'); document.body.style.overflow=''; }
+      navToggle?.addEventListener('click',()=>{ mobileMenu?.classList.contains('active')?closeMenu():openMenu(); });
+      mobileLinks?.forEach(l=>l.addEventListener('click',closeMenu));
+      document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&mobileMenu?.classList.contains('active')) closeMenu(); });
+
+      // Active nav
+      const cp=window.location.pathname.split('/').pop()||'index.html';
+      document.querySelectorAll('.nav__links a, .mobile-menu a').forEach(a=>{
+        a.classList.toggle('active',a.getAttribute('href')===cp||(cp===''&&a.getAttribute('href')==='index.html'));
+      });
+
+      // Scroll reveal
+      if(reveals.length){
+        const obs=new IntersectionObserver(entries=>{
+          entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+        },{threshold:0.15,rootMargin:'0px 0px -40px 0px'});
+        reveals.forEach(el=>obs.observe(el));
+      }
+
+      // Scroll top
+      function updateScrollTop(){ if(scrollTopBtn) scrollTopBtn.classList.toggle('visible',window.scrollY>600); }
+      scrollTopBtn?.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+      let ticking=false;
+      window.addEventListener('scroll',()=>{
+        if(!ticking){ requestAnimationFrame(()=>{ updateNav(); updateScrollTop(); ticking=false; }); ticking=true; }
+      },{passive:true});
+
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click',function(e){
+          const id=this.getAttribute('href'); if(id==='#') return;
+          const t=document.querySelector(id);
+          if(t){ e.preventDefault(); const nh=nav?.offsetHeight||72;
+            window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-nh,behavior:'smooth'}); }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
